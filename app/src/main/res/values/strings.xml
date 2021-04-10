@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">WeekMeal</string>
+    <string name="welcome_text">Bienvenu à tous et toutes en manque d\'inspiration</string>
+    <string name="def">C\'est parti pour de nouvelles recettes !!</string>
 </resources>
