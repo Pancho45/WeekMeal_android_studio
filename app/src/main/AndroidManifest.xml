@@ -9,10 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.WeekMeal">
+        <activity android:name=".MyRecipe"></activity>
+        <activity android:name=".MyList" />
         <activity android:name=".MainActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <action android:name="com.package.name.WeekMeal"/>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="com.package.name.WeekMeal" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
