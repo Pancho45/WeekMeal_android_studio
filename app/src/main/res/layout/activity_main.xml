@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -21,29 +20,33 @@
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="40dp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
     </FrameLayout>
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/def"
+        android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="30dp"
-        android:textAlignment="center"
-        android:textStyle="italic"
-        android:layout_marginTop="20dp"
-        android:text="@string/def"/>
+        android:textStyle="italic" />
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <Button
             android:id="@+id/button_leave"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="20dp"
+            android:backgroundTint="@color/red"
             android:text="Quitter"
-            android:textSize="20dp"
-            android:backgroundTint="@color/red"/>
+            android:textSize="20dp" />
+
         <Button
             android:id="@+id/button_myList"
             android:layout_width="match_parent"
@@ -51,16 +54,17 @@
             android:layout_above="@+id/button_leave"
             android:layout_marginBottom="10dp"
             android:backgroundTint="#03A9F4"
-            android:textSize="20dp"
-            android:text="Mes listes"/>
+            android:text="Mes listes"
+            android:textSize="20dp" />
+
         <Button
             android:id="@+id/button_myRecipe"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_above="@+id/button_myList"
             android:layout_marginBottom="10dp"
-            android:textSize="20dp"
             android:backgroundTint="#03A9F4"
-            android:text="Mes recettes"/>
+            android:text="Mes recettes"
+            android:textSize="20dp" />
     </RelativeLayout>
 </LinearLayout>

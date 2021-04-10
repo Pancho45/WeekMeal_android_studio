@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
 //***********************Button list: list setting (add, remove, modify)*******************************
 //***********************Button recipe: choose recipes (random number)*******************************
         button_recipe=(Button) findViewById(R.id.button_myRecipe);
-        button_list.setOnClickListener(new View.OnClickListener() {
+        button_recipe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent= new Intent(getApplicationContext(), MyRecipe.class);
