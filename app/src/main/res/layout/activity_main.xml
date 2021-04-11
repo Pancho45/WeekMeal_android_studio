@@ -17,10 +17,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="@string/welcome_text"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="40dp"
-            android:textStyle="bold" />
+            style="@style/TitleMainPage" />
     </FrameLayout>
 
     <TextView
@@ -28,10 +25,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="@string/def"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="30dp"
-        android:textStyle="italic" />
+        style="@style/TextMainPage"
+        />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -42,29 +37,29 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="20dp"
             android:backgroundTint="@color/red"
             android:text="Quitter"
-            android:textSize="20dp" />
+            style="@style/ButtonMainPage"
+            />
 
         <Button
             android:id="@+id/button_myList"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_above="@+id/button_leave"
-            android:layout_marginBottom="10dp"
             android:backgroundTint="#03A9F4"
             android:text="Mes listes"
-            android:textSize="20dp" />
+            style="@style/ButtonMainPage"
+            />
 
         <Button
             android:id="@+id/button_myRecipe"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_above="@+id/button_myList"
-            android:layout_marginBottom="10dp"
             android:backgroundTint="#03A9F4"
             android:text="Mes recettes"
-            android:textSize="20dp" />
+            style="@style/ButtonMainPage"
+            />
     </RelativeLayout>
 </LinearLayout>

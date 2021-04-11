@@ -13,4 +13,20 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+    <style name="TitleMainPage">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/FontBig</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+    <style name="TextMainPage">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/FontMiddle</item>
+        <item name="android:textStyle">italic</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+    <style name="ButtonMainPage">
+        <item name="android:textSize">@dimen/FontLittle</item>
+        <item name="android:layout_marginBottom">10dp</item>
+    </style>
 </resources>
