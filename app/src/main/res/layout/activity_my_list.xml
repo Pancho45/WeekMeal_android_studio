@@ -12,11 +12,22 @@
         android:id="@+id/list_Recipe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:listSelector="@android:color/transparent"
-        android:longClickable="true"
-        android:clickable="true"
-        android:isScrollContainer="true"/>
-
+        android:choiceMode="none"
+        android:clickable="false"
+        android:longClickable="false"
+        android:isScrollContainer="true"
+        />
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/button_remove"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_above="@id/button_add"
+        android:src="@android:drawable/ic_delete"
+        android:layout_margin="5dp"
+        android:visibility="invisible"
+        android:theme="@style/Theme.WeekMeal"
+        />
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/button_add"
         android:layout_width="wrap_content"
@@ -25,5 +36,6 @@
         android:layout_alignParentRight="true"
         android:src="@android:drawable/ic_input_add"
         android:layout_marginRight="5dp"
-        android:theme="@style/Theme.WeekMeal"/>
+        android:theme="@style/Theme.WeekMeal"
+        />
 </RelativeLayout>

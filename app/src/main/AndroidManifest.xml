@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.WeekMeal">
-        <activity android:name=".MyRecipe"></activity>
+        <activity android:name=".MyRecipe" />
         <activity android:name=".MyList" />
         <activity android:name=".MainActivity" android:screenOrientation="locked">
             <intent-filter>
