@@ -35,7 +35,7 @@ public class MyList extends AppCompatActivity {
         list_recipe=(ListView) findViewById(R.id.list_Recipe);
         arrayList = new ArrayList<>();
         getData("List_meal.txt"); //Name of the doc to open
-        arrayAdapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1, arrayList);
+        arrayAdapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_multiple_choice, arrayList);
         list_recipe.setAdapter(arrayAdapter);
         list_recipe.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);//allow multiple selection
         list_recipe.setMultiChoiceModeListener(new ModeCallback());

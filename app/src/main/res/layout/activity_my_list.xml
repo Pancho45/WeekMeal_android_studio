@@ -12,7 +12,6 @@
         android:id="@+id/list_Recipe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:listSelector="@android:color/transparent"
         android:longClickable="true"
         android:clickable="true"
         android:isScrollContainer="true"/>
