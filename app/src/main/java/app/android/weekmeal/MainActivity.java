@@ -22,6 +22,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 public class MainActivity extends AppCompatActivity {
+    int CODE_REQUEST_READ_PERMISSION =12, CODE_REQUEST_WRITE_PERMISSION =11;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,25 +52,29 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         storagePermission();
-        copyAssets();
+        copyAssets("List_meal.txt");
     }
     void storagePermission(){
 //******************Grant write permission**********************
         int writeExternalStoragePermission = ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
         if(writeExternalStoragePermission!= PackageManager.PERMISSION_GRANTED)
-            ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 11);
+            ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, CODE_REQUEST_WRITE_PERMISSION);
 //******************Grant read permission**********************
         int readExternalStoragePermission = ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE);
         if(readExternalStoragePermission!= PackageManager.PERMISSION_GRANTED)
-            ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 12);
+            ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, CODE_REQUEST_READ_PERMISSION);
     }
-    private void copyAssets() {
+
+    /*
+    ///copy designed file in asset folder to private app external storage
+     */
+    private void copyAssets(String file) {
         AssetManager assetManager = getAssets();
         InputStream in = null;
         OutputStream out = null;
         try {
-            in = assetManager.open("List_meal.txt");
-            File outFile = new File(getExternalFilesDir(null), "List_meal.txt");
+            in = assetManager.open(file);
+            File outFile = new File(getExternalFilesDir(null), file);
             out = new FileOutputStream(outFile);
             copyFile(in, out);
         } catch(IOException e) {

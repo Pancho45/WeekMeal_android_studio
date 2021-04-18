@@ -1,22 +1,27 @@
 package app.android.weekmeal;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.SparseBooleanArray;
 import android.view.ActionMode;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 public class MyList extends AppCompatActivity {
@@ -24,6 +29,8 @@ public class MyList extends AppCompatActivity {
     ArrayAdapter arrayAdapter;
     private ListView list_recipe;
 
+    FloatingActionButton button_add, button_refresh;
+    EditText text;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +43,42 @@ public class MyList extends AppCompatActivity {
         list_recipe.setAdapter(arrayAdapter);
         list_recipe.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);//allow multiple selection
         list_recipe.setMultiChoiceModeListener(new ModeCallback());
+
+        text=(EditText)findViewById(R.id.text_add);
+        button_add=(FloatingActionButton) findViewById(R.id.button_add);
+        button_add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(button_add.getColorFilter()==null){
+                    button_add.animate().rotationBy(180);
+                    button_add.setColorFilter(Color.WHITE);
+                    Animation animation= AnimationUtils.loadAnimation(getApplicationContext(), R.anim.anime_fade_in);
+                    text.startAnimation(animation);
+                    text.setVisibility(View.VISIBLE);
+                }else{
+                    if(!text.getText().toString().isEmpty()){
+                        arrayList.add(text.getText().toString());
+                        arrayAdapter.notifyDataSetChanged();
+                        button_refresh.setVisibility(View.VISIBLE);
+                        text.setText("");
+                    }
+                    Animation animation= AnimationUtils.loadAnimation(getApplicationContext(), R.anim.anime_fade_out);
+                    text.startAnimation(animation);
+                    text.setVisibility(View.INVISIBLE);
+                    button_add.animate().rotationBy(180);
+                    button_add.setColorFilter(null);
+                }
+            }
+        });
+        button_refresh=(FloatingActionButton)findViewById(R.id.button_refresh);
+        button_refresh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+                startActivity(getIntent());
+                Toast.makeText(getApplicationContext(),"Modification(s) annulée(s) !!",Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
     //****************Open the document, transform line into itemlist****************
@@ -67,7 +110,6 @@ public class MyList extends AppCompatActivity {
 
     public void refreshListRecipe() {
 
-
     }
 
     private class ModeCallback implements ListView.MultiChoiceModeListener {
@@ -76,6 +118,7 @@ public class MyList extends AppCompatActivity {
             MenuInflater inflater = getMenuInflater();
             inflater.inflate(R.menu.list_select_menu, menu);
             mode.setTitle("Recettes sélectionées");
+            button_add.setVisibility(View.INVISIBLE);
             return true;
         }
 
@@ -96,18 +139,14 @@ public class MyList extends AppCompatActivity {
                 }
                 checkedItemPositions.clear();
                 arrayAdapter.notifyDataSetChanged();
-//*****************need to refresh .txt with the new list**************************
-                refreshListRecipe();
                 mode.finish();
-            } else {
-                Toast.makeText(getApplicationContext(), "Clicked " + item.getTitle(),
-                        Toast.LENGTH_SHORT).show();
+                button_refresh.setVisibility(View.VISIBLE);
             }
-
             return true;
         }
 
         public void onDestroyActionMode(ActionMode mode) {
+            button_add.setVisibility(View.VISIBLE);
         }
 
         //****************count checked item number****************
