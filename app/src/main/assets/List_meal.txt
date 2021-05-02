@@ -62,7 +62,6 @@ pates carbonara
 pates bolognaise
 saumon grille/epinards
 carry saucisse/rizAnnoter cette ligne
-Peut préparer veille
 saucisse/puree
 steak/pdt/salade tomates
 merlan/lait coco/tomates
@@ -75,7 +74,6 @@ hamburger maison
 omelette
 quiche lorraine
 flamiche aux poireauxAnnoter cette ligne
-Peut préparer veille
 saint-jacques/fondue de poireaux
 cotes porc/flan courgettes
 tranches gigot/flageolets/haricots vert

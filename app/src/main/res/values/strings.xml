@@ -3,4 +3,15 @@
     <string name="welcome_text">Bienvenu à tous et toutes en manque d\'inspiration</string>
     <string name="def">C\'est parti pour de nouvelles recettes !!</string>
     <string name="text_hint_add_list">Nouvelle recette...</string>
+    <string name="cancel_modifications">Annuler</string>
+    <string name="file_saved">Changements sauvegardés !</string>
+    <string name="text_search_hint">Recherche...</string>
+
+    //*********************************Error notes*********************************
+
+    <string name="error_refresh">Error saving modifications</string>
+    <string name="error_closing">Error clossing external file</string>
+    <string name="error_reading">Error reading external file</string>
+    <string name="error_closing_asset">Error closing asset file</string>
+    <string name="error_copying">Error copying file from asset</string>
 </resources>

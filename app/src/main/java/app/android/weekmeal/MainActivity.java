@@ -52,17 +52,20 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         storagePermission();
-        copyAssets("List_meal.txt");
     }
     void storagePermission(){
 //******************Grant write permission**********************
         int writeExternalStoragePermission = ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
-        if(writeExternalStoragePermission!= PackageManager.PERMISSION_GRANTED)
+        if(writeExternalStoragePermission!= PackageManager.PERMISSION_GRANTED){
+            copyAssets("List_meal.txt");
             ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, CODE_REQUEST_WRITE_PERMISSION);
+        }
 //******************Grant read permission**********************
         int readExternalStoragePermission = ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE);
-        if(readExternalStoragePermission!= PackageManager.PERMISSION_GRANTED)
+        if(readExternalStoragePermission!= PackageManager.PERMISSION_GRANTED){
+            copyAssets("List_meal.txt");
             ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, CODE_REQUEST_READ_PERMISSION);
+        }
     }
 
     /*
@@ -78,21 +81,21 @@ public class MainActivity extends AppCompatActivity {
             out = new FileOutputStream(outFile);
             copyFile(in, out);
         } catch(IOException e) {
-            Toast.makeText(getApplicationContext(), "Error copying file!", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), R.string.error_copying, Toast.LENGTH_LONG).show();
         }
         finally {
             if (in != null) {
                 try {
                     in.close();
                 } catch (IOException e) {
-                    Toast.makeText(getApplicationContext(), "Error closing asset file!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), R.string.error_closing_asset, Toast.LENGTH_LONG).show();
                 }
             }
             if (out != null) {
                 try {
                     out.close();
                 } catch (IOException e) {
-                    Toast.makeText(getApplicationContext(), "Error closing external file!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), R.string.error_closing, Toast.LENGTH_LONG).show();
                 }
             }
         }
