@@ -52,16 +52,16 @@ Pates aux courgettes et/ou aubergines
 Pates aux anchois
 Pates aux crevettes et boursin
 Pates aux brocolis et à la feta
-endives au jambonAnnoter cette ligne
-tomates farciesAnnoter cette ligne
-hachis parmentierAnnoter cette ligne
-filet mignon aux champignons/rizAnnoter cette ligne
+endives au jambon
+tomates farcies
+hachis parmentier
+filet mignon aux champignons/riz
 soupes
 croque-monsieur/salade
 pates carbonara
 pates bolognaise
 saumon grille/epinards
-carry saucisse/rizAnnoter cette ligne
+carry saucisse/riz
 saucisse/puree
 steak/pdt/salade tomates
 merlan/lait coco/tomates
@@ -73,7 +73,7 @@ oeufs a la coque
 hamburger maison
 omelette
 quiche lorraine
-flamiche aux poireauxAnnoter cette ligne
+flamiche aux poireaux
 saint-jacques/fondue de poireaux
 cotes porc/flan courgettes
 tranches gigot/flageolets/haricots vert

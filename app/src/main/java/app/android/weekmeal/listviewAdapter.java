@@ -56,15 +56,15 @@ public class listviewAdapter extends ArrayAdapter<String> {
             viewholder=new listviewAdapter.viewHolder();
             view = inflater.inflate(R.layout.listviewlayout, null);
 
-            viewholder.textView = (TextView)  view.findViewById(R.id.textview_recipe);
-            viewholder.imageView = (ImageView)  view.findViewById(R.id.imageview_recipe);
+            viewholder.textView = view.findViewById(R.id.textview_recipe);
+            viewholder.imageView = view.findViewById(R.id.imageview_recipe);
 
             view.setTag(viewholder);
 
         } else
             viewholder = (listviewAdapter.viewHolder)  view.getTag();
 
-        viewholder.textView.setText(arrayList.get(position).toString());
+        viewholder.textView.setText(arrayList.get(position));
         viewholder.imageView.setImageResource(android.R.drawable.btn_star);//need to be changed
 
         return view;

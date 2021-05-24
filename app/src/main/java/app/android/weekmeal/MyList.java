@@ -57,7 +57,7 @@ public class MyList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_list);
 
-        list_recipe = (ListView) findViewById(R.id.list_Recipe);
+        list_recipe = findViewById(R.id.list_Recipe);
         arrayList = new ArrayList<>();
         getData("List_meal.txt"); //Name of the doc to open
         arrayAdapter = new listviewAdapter(this, R.layout.listviewlayout, arrayList);
@@ -65,8 +65,8 @@ public class MyList extends AppCompatActivity {
         list_recipe.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);//allow multiple selection
         list_recipe.setMultiChoiceModeListener(new ModeCallback());
 
-        text_add=(EditText)findViewById(R.id.text_add);
-        button_add=(FloatingActionButton) findViewById(R.id.button_add);
+        text_add= findViewById(R.id.text_add);
+        button_add= findViewById(R.id.button_add);
         button_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -93,7 +93,7 @@ public class MyList extends AppCompatActivity {
                 }
             }
         });
-        searchView=(SearchView) findViewById(R.id.searchview);
+        searchView= findViewById(R.id.searchview);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String s) {
@@ -108,7 +108,7 @@ public class MyList extends AppCompatActivity {
                 return false;
             }
         });
-        button_refresh=(Button) findViewById(R.id.button_refresh);
+        button_refresh= findViewById(R.id.button_refresh);
         button_refresh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -197,11 +197,13 @@ public class MyList extends AppCompatActivity {
         }
 
         public void onDestroyActionMode(ActionMode mode) {
+            button_add.setVisibility(View.VISIBLE);
             if (isRemoving) {
                 isRemoving=false;
                 Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.move_in);
                 button_refresh.startAnimation(animation);
                 button_refresh.setVisibility(View.VISIBLE);
+                button_refresh.setClickable(true);
                 countDownTimer=new CountDownTimer(4000, 1000) {
                     @Override
                     public void onTick(long l) {
@@ -212,7 +214,7 @@ public class MyList extends AppCompatActivity {
                         Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.move_out);
                         button_refresh.startAnimation(animation);
                         button_refresh.setVisibility(View.INVISIBLE);
-                        button_add.setVisibility(View.VISIBLE);
+                        button_refresh.setClickable(false);
                     }
                 }.start();
             }

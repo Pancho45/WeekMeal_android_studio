@@ -14,4 +14,5 @@
     <string name="error_reading">Error reading external file</string>
     <string name="error_closing_asset">Error closing asset file</string>
     <string name="error_copying">Error copying file from asset</string>
+    <string name="recipe_number">Nombre de recettes :</string>
 </resources>

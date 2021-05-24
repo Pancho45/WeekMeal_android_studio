@@ -29,18 +29,18 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 //***********************Button leave: leave the app*******************************
-        Button button_leave = (Button) findViewById(R.id.button_leave);
+        Button button_leave = findViewById(R.id.button_leave);
         button_leave.setOnClickListener(view -> System.exit(0));
 //***********************Button leave: leave the app*******************************
 //***********************Button list: list setting (add, remove, modify)*******************************
-        Button button_list = (Button) findViewById(R.id.button_myList);
+        Button button_list = findViewById(R.id.button_myList);
         button_list.setOnClickListener(view -> {
             Intent intent= new Intent(getApplicationContext(), MyList.class);
             startActivity(intent);
         });
 //***********************Button list: list setting (add, remove, modify)*******************************
 //***********************Button recipe: choose recipes (random number)*******************************
-        Button button_recipe = (Button) findViewById(R.id.button_myRecipe);
+        Button button_recipe = findViewById(R.id.button_myRecipe);
         button_recipe.setOnClickListener(view -> {
             Intent intent= new Intent(getApplicationContext(), MyRecipe.class);
             startActivity(intent);

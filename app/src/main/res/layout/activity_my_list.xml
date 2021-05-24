@@ -1,11 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:background="@android:color/transparent"
     tools:context=".MyList"
     android:orientation="vertical">
+    <SearchView
+        android:id="@+id/searchview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button_add"
+        android:layout_alignParentEnd="true"
+        android:padding="5dp"
+        android:iconifiedByDefault="false"
+        android:textColor="@color/white"
+        android:queryHint="@string/text_search_hint"
+        android:textColorHint="@color/white"
+        />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        >
     <ListView
         android:id="@+id/list_Recipe"
         android:layout_width="wrap_content"
@@ -34,21 +51,10 @@
         android:layout_centerHorizontal="true"
         android:background="@drawable/edit_text_border"
         android:hint="@string/text_hint_add_list"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textColorHint="@color/white"
         android:textSize="@dimen/FontMiddle"
         android:visibility="invisible"
-        />
-    <SearchView
-        android:id="@+id/searchview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_above="@+id/button_add"
-        android:background="@drawable/edit_text_border"
-        android:textColor="@color/black"
-        android:queryHint="@string/text_search_hint"
-        android:textColorHint="@color/white"
         />
     <Button
         android:id="@+id/button_refresh"
@@ -57,7 +63,9 @@
         android:layout_alignParentBottom="true"
         android:backgroundTint="@color/red"
         android:text="@string/cancel_modifications"
+        android:clickable="false"
         android:visibility="invisible"
         android:textColor="@color/white"
         />
-</RelativeLayout>
+    </RelativeLayout>
+</LinearLayout>
